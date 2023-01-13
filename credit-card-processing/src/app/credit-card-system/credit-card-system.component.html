@@ -1,0 +1,45 @@
+<div class="container mt-3">
+<h4>Credit Card System</h4>
+
+Add
+<br>
+<div [formGroup] = "formdata" >
+  <label for="name">Name</label><br>
+  <input formControlName="name" type="text" id="name" name="name" ><br><br>
+  <label for="card-number">Card Number</label><br>
+  <input formControlName="cardNumber" type="number" id="card-number" name="card-number" ><br><br>
+  <label for="limit">Limit</label><br>
+  <input formControlName="limit" type="text" id="limit" name="limit"><br><br>
+  <div class = "text-danger" *ngIf="invaldCard">Inavalid card value</div>
+  <input class="btn btn-secondary  btn-sm" (click) = "onClickSubmit(formdata.value)" type="submit" value="Add">
+</div> 
+
+
+
+</div>
+
+<div class="container mt-5">
+  <h5>Existing Cards</h5>
+  
+
+    <table class="table table-bordered">
+      <thead class=" text-center bg-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Card Number</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let data of card_data">
+          <td>{{data.UserName }}</td>
+          <td>{{data.CardNumber }}</td>
+          <td>{{data.CardLimit  }}</td>
+          <td>{{data.Balance }}</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
